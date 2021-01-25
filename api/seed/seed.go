@@ -40,7 +40,7 @@ func Load(db *gorm.DB) {
 	if err != nil {
 		log.Fatalf("cannot migrate table: %v", err)
 	}
-	err = db.Debug().Model(&models.Post{}).AddForeignKey("author_id", "users(id)", "cascade", "cascade").Error
+	err = db.Debug().Model(&models.Post{}).AddForeignKey("author_id", "users(id)", "CASCADE", "CASCADE").Error
 	if err != nil {
 		log.Fatalf("attaching foreign key error: %v", err)
 	}
