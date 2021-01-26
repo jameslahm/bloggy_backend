@@ -1,4 +1,4 @@
-package modeltests
+package controllertests
 
 import (
 	"log"
@@ -16,7 +16,7 @@ func TestMain(m *testing.M) {
 	var err error
 	err = godotenv.Load("../../.env")
 	if err != nil {
-		log.Fatalf("Error getting env %v\n", err)
+		log.Fatalf("Error load .env %v\n", err)
 	}
 	utils.Database(&server)
 	os.Exit(m.Run())

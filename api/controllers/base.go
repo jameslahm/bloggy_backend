@@ -26,7 +26,7 @@ func (server *Server) Initialize(Dbdriver, DbUser, DbPassword, DbPort, DbHost, D
 			fmt.Printf("Cannot connect to %s database\n", Dbdriver)
 			log.Fatal("Error: ", err)
 		} else {
-			fmt.Println("We are connected to the %s database", Dbdriver)
+			fmt.Printf("We are connected to the %s database\n", Dbdriver)
 		}
 	}
 	if Dbdriver == "postgres" {
@@ -36,7 +36,7 @@ func (server *Server) Initialize(Dbdriver, DbUser, DbPassword, DbPort, DbHost, D
 			fmt.Printf("Cannot connect to %s database\n", Dbdriver)
 			log.Fatal("Error: ", err)
 		} else {
-			fmt.Println("We are connected to the %s database", Dbdriver)
+			fmt.Printf("We are connected to the %s database\n", Dbdriver)
 		}
 
 		server.DB.Debug().AutoMigrate(&models.User{}, &models.Post{})

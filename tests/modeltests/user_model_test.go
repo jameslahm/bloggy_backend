@@ -1,19 +1,19 @@
 package modeltests
 
 import (
+	"github.com/jameslahm/bloggy_backend/models"
+	. "github.com/jameslahm/bloggy_backend/tests/utils"
+	"gopkg.in/go-playground/assert.v1"
 	"log"
 	"testing"
-
-	"github.com/jameslahm/bloggy_backend/models"
-	"gopkg.in/go-playground/assert.v1"
 )
 
 func TestFindAllUser(t *testing.T) {
-	err := refreshUserTable()
+	err := RefreshUserTable(&server)
 	if err != nil {
 		log.Fatal(err)
 	}
-	err = seedUsers()
+	err = SeedUsers(&server)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -26,11 +26,11 @@ func TestFindAllUser(t *testing.T) {
 }
 
 func TestGetUserById(t *testing.T) {
-	err := refreshUserTable()
+	err := RefreshUserTable(&server)
 	if err != nil {
 		log.Fatal(err)
 	}
-	user, err := seedOneUser()
+	user, err := SeedOneUser(&server)
 	if err != nil {
 		log.Fatalf("cannot seed users table: %v", err)
 	}
@@ -44,11 +44,11 @@ func TestGetUserById(t *testing.T) {
 }
 
 func TestUpdateUser(t *testing.T) {
-	err := refreshUserTable()
+	err := RefreshUserTable(&server)
 	if err != nil {
 		log.Fatal(err)
 	}
-	user, err := seedOneUser()
+	user, err := SeedOneUser(&server)
 	if err != nil {
 		log.Fatalf("Cannot seed user: %v\n", err)
 	}
@@ -65,11 +65,11 @@ func TestUpdateUser(t *testing.T) {
 }
 
 func TestDeleteUser(t *testing.T) {
-	err := refreshUserTable()
+	err := RefreshUserTable(&server)
 	if err != nil {
 		log.Fatal(err)
 	}
-	user, err := seedOneUser()
+	user, err := SeedOneUser(&server)
 	if err != nil {
 		log.Fatalf("Cannot seed user: %v\n", err)
 	}
